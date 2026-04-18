@@ -4,8 +4,7 @@ on:
 #   push:
 #   pull_request:
   workflow_dispatch:
-#   schedule:
-#     - cron: "0 0 * * *"
+
 
 
 jobs:
@@ -14,3 +13,4 @@ jobs:
     steps:
       - name: Show the trigger
         run: echo "Triggered by - ${{ github.event_name }}"
+
