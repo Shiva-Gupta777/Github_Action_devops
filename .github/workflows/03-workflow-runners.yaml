@@ -8,5 +8,22 @@ jobs:
     steps:
       - name: Show OS
         run: |
-          echo "This job is running on an Ubuntu runner"
+          echo "This job is running on Ubuntu"
+          echo "Runner OS: $RUNNER_OS"
+
+  windows-echo:
+    runs-on: windows-latest
+    steps:
+      - name: Show OS
+        shell: bash        #// windows runner default shell is powershell, we need to specify bash to use $RUNNER_OS variable
+        run: |
+          echo "This job is running on Windows"
+          echo "Runner OS: $RUNNER_OS"
+
+  mac-echo:
+    runs-on: macos-latest
+    steps:
+      - name: Show OS
+        run: |
+          echo "This job is running on Mac"
           echo "Runner OS: $RUNNER_OS"
