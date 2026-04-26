@@ -1,0 +1,24 @@
+# 📄 .github/workflows/05-1-filters-activity-types.yaml
+
+# Step 2a: Name the workflow
+name: 05 - 1 - Event Filters and Activity Types
+#     ↑ This name appears on GitHub Actions tab
+
+# Step 2b: Define the trigger
+on:
+  pull_request:               # Listen to pull request event
+    types:                    # Activity types filter
+      - opened                # ✅ Trigger when PR is first created
+      - synchronize           # ✅ Trigger when new commit pushed to PR
+    branches:                 # Event filter
+      - main                  # ✅ Only when PR targets main branch
+
+# Step 2c: Define the job
+jobs:
+  echo:                       # Job name is 'echo'
+    runs-on: ubuntu-latest    # Run on Ubuntu machine
+
+    steps:
+      - name: Print Message   # Step name
+        run: echo "Running whenever a PR is opened or synchronized AND base branch is main"
+        #    ↑ prints message to screen
